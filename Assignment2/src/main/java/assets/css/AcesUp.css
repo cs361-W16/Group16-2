@@ -16,3 +16,17 @@ font-weight: bold;
 width: 100px;
 background-color:#F0F0F0;
 }
+#discard{
+    float: right;
+    width: 200px;
+}
+
+#discard img{
+width: 100px;
+height: 150px;
+}
+
+#deck input{
+width: 100px;
+height: 150px;
+}
