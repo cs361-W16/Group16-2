@@ -29,7 +29,7 @@ background-color:#F0F0F0;
 }
 
 body{
-background-image: url("../../assets/images/background.jpg");
+background-image: url("../images/background.jpg");
 background-size: 100% 100%;
 background-repeat: no-repeat;
 }
@@ -58,7 +58,7 @@ float: right;
 }
 
 #discard{
-    background-image: url("../../assets/images/trash.jpg");
+    background-image: url("../images/trash.jpg");
     float: right;
     background-size: 100%;
     width: 100px;
@@ -70,7 +70,7 @@ float: right;
 #deck button{
 width: 100px;
 height: 140px;
-background-image: url("../../assets/images/deck.jpg");
+background-image: url("../images/deck.jpg");
 background-size: 100%;
   background-repeat: no-repeat;
 
