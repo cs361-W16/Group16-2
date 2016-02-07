@@ -78,3 +78,24 @@ background-size: 100%;
   background-repeat: no-repeat;
 
 }
+
+
+#gameboard tr div {
+    display: inline;
+}
+
+#gameboard {
+    clear: both;
+}
+
+.boardCol {
+    display: inline;
+    float: left;
+}
+
+
+
+.card {
+    width: 200px;
+    height:300px;
+}
