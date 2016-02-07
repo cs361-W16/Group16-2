@@ -1,3 +1,7 @@
+table{
+    empty-cells: hide;
+}
+
 tr{
 width:550px;
 }
@@ -25,7 +29,6 @@ text-shadow: -1px 0 silver, 0 1px silver, 1px 0 silver, 0 -1px silver  ;
 
 .cardLocation{
 width: 400px;
-background-color:#F0F0F0;
 }
 
 body{
@@ -57,7 +60,7 @@ float: right;
     display: inline;
 }
 
-#discard{
+.discard{
     background-image: url("../images/trash.jpg");
     float: right;
     background-size: 100%;
@@ -74,4 +77,25 @@ background-image: url("../images/deck.jpg");
 background-size: 100%;
   background-repeat: no-repeat;
 
+}
+
+
+#gameboard tr div {
+    display: inline;
+}
+
+#gameboard {
+    clear: both;
+}
+
+.boardCol {
+    display: inline;
+    float: left;
+}
+
+
+
+.card {
+    width: 200px;
+    height:300px;
 }
