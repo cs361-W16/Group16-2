@@ -16,112 +16,117 @@
 
 <link href="assets/css/AcesUp.css" rel="stylesheet">
 <script type="text/javascript" src="/assets/webjars/jquery/2.1.3/jquery.js"></script>
+<script type="text/javascript" src="/assets/webjars/jquery-ui/1.11.4/jquery-ui.js"></script>
 
 <body>
-<div id="board">
-<table id="gameBoard">
+    <div id="board">
 
-<tr><td class="columnOfCards" id="c0">
-<table>
-<tr><td class="cardLocation l0"></td></tr>
-<tr><td class="cardLocation l1"></td></tr>
-<tr><td class="cardLocation l2"></td></tr>
-<tr><td class="cardLocation l3"></td></tr>
-<tr><td class="cardLocation l4"></td></tr>
-<tr><td class="cardLocation l5"></td></tr>
-<tr><td class="cardLocation l6"></td></tr>
-<tr><td class="cardLocation l7"></td></tr>
-<tr><td class="cardLocation l8"></td></tr>
-<tr><td class="cardLocation l9"></td></tr>
-<tr><td class="cardLocation l10"></td></tr>
-<tr><td class="cardLocation l11"></td></tr>
-<tr><td class="cardLocation l12"></td></tr>
-<tr><td class="cardLocation l13"></td></tr>
-</table>
-</td>
-<td class="columnOfCards" id="c1">
-<table>
-<tr><td class="cardLocation l0"></td></tr>
-<tr><td class="cardLocation l1"></td></tr>
-<tr><td class="cardLocation l2"></td></tr>
-<tr><td class="cardLocation l3"></td></tr>
-<tr><td class="cardLocation l4"></td></tr>
-<tr><td class="cardLocation l5"></td></tr>
-<tr><td class="cardLocation l6"></td></tr>
-<tr><td class="cardLocation l7"></td></tr>
-<tr><td class="cardLocation l8"></td></tr>
-<tr><td class="cardLocation l9"></td></tr>
-<tr><td class="cardLocation l10"></td></tr>
-<tr><td class="cardLocation l11"></td></tr>
-<tr><td class="cardLocation l12"></td></tr>
-<tr><td class="cardLocation l13"></td></tr>
-</table>
-</td>
-<td class="columnOfCards" id="c2">
-<table>
-<tr><td class="cardLocation l0"></td></tr>
-<tr><td class="cardLocation l1"></td></tr>
-<tr><td class="cardLocation l2"></td></tr>
-<tr><td class="cardLocation l3"></td></tr>
-<tr><td class="cardLocation l4"></td></tr>
-<tr><td class="cardLocation l5"></td></tr>
-<tr><td class="cardLocation l6"></td></tr>
-<tr><td class="cardLocation l7"></td></tr>
-<tr><td class="cardLocation l8"></td></tr>
-<tr><td class="cardLocation l9"></td></tr>
-<tr><td class="cardLocation l10"></td></tr>
-<tr><td class="cardLocation l11"></td></tr>
-<tr><td class="cardLocation l12"></td></tr>
-<tr><td class="cardLocation l13"></td></tr>
-</table>
-</td>
-<td class="columnOfCards" id="c3">
-<table>
+        <table id="columnOfCards">
 
-<tr><td class="cardLocation l0"></td></tr>
-<tr><td class="cardLocation l1"></td></tr>
-<tr><td class="cardLocation l2"></td></tr>
-<tr><td class="cardLocation l3"></td></tr>
-<tr><td class="cardLocation l4"></td></tr>
-<tr><td class="cardLocation l5"></td></tr>
-<tr><td class="cardLocation l6"></td></tr>
-<tr><td class="cardLocation l7"></td></tr>
-<tr><td class="cardLocation l8"></td></tr>
-<tr><td class="cardLocation l9"></td></tr>
-<tr><td class="cardLocation l10"></td></tr>
-<tr><td class="cardLocation l11"></td></tr>
-<tr><td class="cardLocation l12"></td></tr>
-<tr><td class="cardLocation l13"></td></tr>
+    </table>
+    <!--<table id="gameBoard">-->
 
-</table>
-</td>
-</tr>
-</table>
+    <!--<tr><td class="columnOfCards" id="c0">-->
+    <!--<table>-->
+    <!--<tr><td class="cardLocation l0"></td></tr>-->
+    <!--<tr><td class="cardLocation l1"></td></tr>-->
+    <!--<tr><td class="cardLocation l2"></td></tr>-->
+    <!--<tr><td class="cardLocation l3"></td></tr>-->
+    <!--<tr><td class="cardLocation l4"></td></tr>-->
+    <!--<tr><td class="cardLocation l5"></td></tr>-->
+    <!--<tr><td class="cardLocation l6"></td></tr>-->
+    <!--<tr><td class="cardLocation l7"></td></tr>-->
+    <!--<tr><td class="cardLocation l8"></td></tr>-->
+    <!--<tr><td class="cardLocation l9"></td></tr>-->
+    <!--<tr><td class="cardLocation l10"></td></tr>-->
+    <!--<tr><td class="cardLocation l11"></td></tr>-->
+    <!--<tr><td class="cardLocation l12"></td></tr>-->
+    <!--<tr><td class="cardLocation l13"></td></tr>-->
+    <!--</table>-->
+    <!--</td>-->
+    <!--<td class="columnOfCards" id="c1">-->
+    <!--<table>-->
+    <!--<tr><td class="cardLocation l0"></td></tr>-->
+    <!--<tr><td class="cardLocation l1"></td></tr>-->
+    <!--<tr><td class="cardLocation l2"></td></tr>-->
+    <!--<tr><td class="cardLocation l3"></td></tr>-->
+    <!--<tr><td class="cardLocation l4"></td></tr>-->
+    <!--<tr><td class="cardLocation l5"></td></tr>-->
+    <!--<tr><td class="cardLocation l6"></td></tr>-->
+    <!--<tr><td class="cardLocation l7"></td></tr>-->
+    <!--<tr><td class="cardLocation l8"></td></tr>-->
+    <!--<tr><td class="cardLocation l9"></td></tr>-->
+    <!--<tr><td class="cardLocation l10"></td></tr>-->
+    <!--<tr><td class="cardLocation l11"></td></tr>-->
+    <!--<tr><td class="cardLocation l12"></td></tr>-->
+    <!--<tr><td class="cardLocation l13"></td></tr>-->
+    <!--</table>-->
+    <!--</td>-->
+    <!--<td class="columnOfCards" id="c2">-->
+    <!--<table>-->
+    <!--<tr><td class="cardLocation l0"></td></tr>-->
+    <!--<tr><td class="cardLocation l1"></td></tr>-->
+    <!--<tr><td class="cardLocation l2"></td></tr>-->
+    <!--<tr><td class="cardLocation l3"></td></tr>-->
+    <!--<tr><td class="cardLocation l4"></td></tr>-->
+    <!--<tr><td class="cardLocation l5"></td></tr>-->
+    <!--<tr><td class="cardLocation l6"></td></tr>-->
+    <!--<tr><td class="cardLocation l7"></td></tr>-->
+    <!--<tr><td class="cardLocation l8"></td></tr>-->
+    <!--<tr><td class="cardLocation l9"></td></tr>-->
+    <!--<tr><td class="cardLocation l10"></td></tr>-->
+    <!--<tr><td class="cardLocation l11"></td></tr>-->
+    <!--<tr><td class="cardLocation l12"></td></tr>-->
+    <!--<tr><td class="cardLocation l13"></td></tr>-->
+    <!--</table>-->
+    <!--</td>-->
+    <!--<td class="columnOfCards" id="c3">-->
+    <!--<table>-->
+
+    <!--<tr><td class="cardLocation l0"></td></tr>-->
+    <!--<tr><td class="cardLocation l1"></td></tr>-->
+    <!--<tr><td class="cardLocation l2"></td></tr>-->
+    <!--<tr><td class="cardLocation l3"></td></tr>-->
+    <!--<tr><td class="cardLocation l4"></td></tr>-->
+    <!--<tr><td class="cardLocation l5"></td></tr>-->
+    <!--<tr><td class="cardLocation l6"></td></tr>-->
+    <!--<tr><td class="cardLocation l7"></td></tr>-->
+    <!--<tr><td class="cardLocation l8"></td></tr>-->
+    <!--<tr><td class="cardLocation l9"></td></tr>-->
+    <!--<tr><td class="cardLocation l10"></td></tr>-->
+    <!--<tr><td class="cardLocation l11"></td></tr>-->
+    <!--<tr><td class="cardLocation l12"></td></tr>-->
+    <!--<tr><td class="cardLocation l13"></td></tr>-->
+
+    <!--</table>-->
+    <!--</td>-->
+    <!--</tr>-->
+    <!--</table>-->
     <br></br>
     <br></br>
 
 
-<div>
-    <div id="inactiveCard">
+    <div>
+        <div id="inactiveCard">
 
-    </div>
-
-    <div id="activeCard">
-
-    </div>
-
-    <div id="buttons">
-        <div id="deck">
-            <button id="dealButton"/>
-            <h2>Deal</h2>
         </div>
-        <div id="discard">
-            <h2>Discard</h2>
+
+        <div id="activeCard">
+
         </div>
+
+        <div id="buttons">
+            <div id="deck">
+                <button id="dealButton"/>
+                <h2>Deal</h2>
+            </div>
+            <div id="discard">
+                <h2>Discard</h2>
+            </div>
+        </div>
+
+
     </div>
-
-
-</div>
 </div>
 
 
@@ -132,63 +137,102 @@
 <script>
 
 var game;
+var curCol = 0;
+
+function genRow(rowNum) {
+    $('#columnOfCards').append("<td data-colnum = '"+rowNum+"'></td>");
+    
+    for(var i = 0; i < 4; i++) {
+        console.log('td[data-colnum="'+rowNum+'"]');
+        $('#columnOfCards td[data-colnum="'+rowNum+'"]').append("<tr data-rownum='"+i+"'> </tr>");
+    }
+
+}
 
 function display(game) {
-console.log(game);
 
-$( '.columnOfCards .cardLocation' ).html("");
+    genRow(curCol++);
+    console.log(game);
 
-    $.each(game.cols[0], function( key, val ) {
-        $( '#c0 .l'+key ).html("<img src='assets/images/" + val.value +"_of_"+ val.suit.toLowerCase() +".png' width='250'/>");
-    });
+    for(var i = 0; i < 4; i++){
+        // 1) Go to row i,
+        
+        $('td[data-colnum="'+i+'"]'); 
+        // 2) Go through each column, dipslay image of card/suit
+        // game.col[i][0];
 
- $.each(game.cols[1], function( key, val ) {
-        $( '#c1 .l'+key ).html("<img src='assets/images/" + val.value +"_of_"+ val.suit.toLowerCase() +".png' width='250'/>");
-    });
+    }
 
- $.each(game.cols[2], function( key, val ) {
-        $( '#c2 .l'+key ).html("<img src='assets/images/" + val.value +"_of_"+ val.suit.toLowerCase() +".png' width='250'/>");
-    });
+    // console.log("You are viewing information about the game:");
+    // console.log(game);
 
- $.each(game.cols[3], function( key, val ) {
-        $( '#c3 .l'+key ).html("<img src='assets/images/" + val.value +"_of_"+ val.suit.toLowerCase() +".png' width='250'/>");
-    });
+    // $( '#columnOfCards .cardLocation' ).html("");
+
+
+
+    // $('#columnOfCards [data-colNum="'+curCol+'"]')
+
+ //    $.each(game.cols[0], function( key, val ) {
+ //        $( '#c0 .l'+key ).html("<img src='assets/images/" + val.value +"_of_"+ val.suit.toLowerCase() +".png' width='250'/>");
+ //    });
+
+ // $.each(game.cols[1], function( key, val ) {
+ //        $( '#c1 .l'+key ).html("<img src='assets/images/" + val.value +"_of_"+ val.suit.toLowerCase() +".png' width='250'/>");
+ //    });
+
+ // $.each(game.cols[2], function( key, val ) {
+ //        $( '#c2 .l'+key ).html("<img src='assets/images/" + val.value +"_of_"+ val.suit.toLowerCase() +".png' width='250'/>");
+ //    });
+
+ // $.each(game.cols[3], function( key, val ) {
+ //        $( '#c3 .l'+key ).html("<img src='assets/images/" + val.value +"_of_"+ val.suit.toLowerCase() +".png' width='250'/>");
+ //    });
 
 
 
 }
 
 $.getJSON("http://localhost:8080/game", function( data ) {
-display(data);
-game = data;
+    display(data);
+    game = data;
 });
 
+
+function dealDrag(){
+    console.log("clicked deal");
+    for(var i = 0; i < 4; i++){
+        $('c' + i).addClass("setDrag")
+    }
+};
 
 $("#dealButton").click(function(){
-$.ajax({
-  type: "POST",
-  url: "/dealGame",
-  data: JSON.stringify(game),
-  success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
-        game = data;
-        display(data);},
-  contentType:"application/json; charset=utf-8",
-  dataType:"json",
+    $.ajax({
+      type: "POST",
+      url: "/dealGame",
+      data: JSON.stringify(game),
+      success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+      game = data;
+      display(data);
+      dealDrag();},
+
+      contentType:"application/json; charset=utf-8",
+      dataType:"json",
+  });
 });
-});
+
 
 
 function removeCard(colNumber){
-$.ajax({
-type: "POST",
-url: "/removeCard/"+colNumber,
-data: JSON.stringify(game),
-success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
-game = data;
-display(data);},
-contentType:"application/json; charset=utf-8",
-dataType:"json",
-});
+    $.ajax({
+        type: "POST",
+        url: "/removeCard/"+colNumber,
+        data: JSON.stringify(game),
+        success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+        game = data;
+        display(data);},
+        contentType:"application/json; charset=utf-8",
+        dataType:"json",
+    });
 
 }
 
@@ -208,18 +252,18 @@ $("#Remove4").click(function(){
 
 
 $("#moveButton").click(function(){
-var colFrom = $("#from_col").val();
-var colTo = $("#to_col").val();
-$.ajax({
-  type: "POST",
-  url: "/moveCard/"+colFrom+"/"+colTo,
-  data: JSON.stringify(game),
-  success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
-        game = data;
-        display(data);},
-  contentType:"application/json; charset=utf-8",
-  dataType:"json",
-});
+    var colFrom = $("#from_col").val();
+    var colTo = $("#to_col").val();
+    $.ajax({
+      type: "POST",
+      url: "/moveCard/"+colFrom+"/"+colTo,
+      data: JSON.stringify(game),
+      success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+      game = data;
+      display(data);},
+      contentType:"application/json; charset=utf-8",
+      dataType:"json",
+  });
 });
 
 

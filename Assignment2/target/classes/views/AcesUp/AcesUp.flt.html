@@ -16,211 +16,231 @@
 
 <link href="assets/css/AcesUp.css" rel="stylesheet">
 <script type="text/javascript" src="/assets/webjars/jquery/2.1.3/jquery.js"></script>
+<script type="text/javascript" src="/assets/webjars/jquery-ui/1.11.4/jquery-ui.js"></script>
 
 <body>
-<div id="board">
-<table id="gameBoard">
+    <div id="board">
 
-<tr><td class="columnOfCards" id="c0">
-<table>
-<tr><td class="cardLocation l0"></td></tr>
-<tr><td class="cardLocation l1"></td></tr>
-<tr><td class="cardLocation l2"></td></tr>
-<tr><td class="cardLocation l3"></td></tr>
-<tr><td class="cardLocation l4"></td></tr>
-<tr><td class="cardLocation l5"></td></tr>
-<tr><td class="cardLocation l6"></td></tr>
-<tr><td class="cardLocation l7"></td></tr>
-<tr><td class="cardLocation l8"></td></tr>
-<tr><td class="cardLocation l9"></td></tr>
-<tr><td class="cardLocation l10"></td></tr>
-<tr><td class="cardLocation l11"></td></tr>
-<tr><td class="cardLocation l12"></td></tr>
-<tr><td class="cardLocation l13"></td></tr>
-</table>
-</td>
-<td class="columnOfCards" id="c1">
-<table>
-<tr><td class="cardLocation l0"></td></tr>
-<tr><td class="cardLocation l1"></td></tr>
-<tr><td class="cardLocation l2"></td></tr>
-<tr><td class="cardLocation l3"></td></tr>
-<tr><td class="cardLocation l4"></td></tr>
-<tr><td class="cardLocation l5"></td></tr>
-<tr><td class="cardLocation l6"></td></tr>
-<tr><td class="cardLocation l7"></td></tr>
-<tr><td class="cardLocation l8"></td></tr>
-<tr><td class="cardLocation l9"></td></tr>
-<tr><td class="cardLocation l10"></td></tr>
-<tr><td class="cardLocation l11"></td></tr>
-<tr><td class="cardLocation l12"></td></tr>
-<tr><td class="cardLocation l13"></td></tr>
-</table>
-</td>
-<td class="columnOfCards" id="c2">
-<table>
-<tr><td class="cardLocation l0"></td></tr>
-<tr><td class="cardLocation l1"></td></tr>
-<tr><td class="cardLocation l2"></td></tr>
-<tr><td class="cardLocation l3"></td></tr>
-<tr><td class="cardLocation l4"></td></tr>
-<tr><td class="cardLocation l5"></td></tr>
-<tr><td class="cardLocation l6"></td></tr>
-<tr><td class="cardLocation l7"></td></tr>
-<tr><td class="cardLocation l8"></td></tr>
-<tr><td class="cardLocation l9"></td></tr>
-<tr><td class="cardLocation l10"></td></tr>
-<tr><td class="cardLocation l11"></td></tr>
-<tr><td class="cardLocation l12"></td></tr>
-<tr><td class="cardLocation l13"></td></tr>
-</table>
-</td>
-<td class="columnOfCards" id="c3">
-<table>
+        <table id="columnOfCards">
 
-<tr><td class="cardLocation l0"></td></tr>
-<tr><td class="cardLocation l1"></td></tr>
-<tr><td class="cardLocation l2"></td></tr>
-<tr><td class="cardLocation l3"></td></tr>
-<tr><td class="cardLocation l4"></td></tr>
-<tr><td class="cardLocation l5"></td></tr>
-<tr><td class="cardLocation l6"></td></tr>
-<tr><td class="cardLocation l7"></td></tr>
-<tr><td class="cardLocation l8"></td></tr>
-<tr><td class="cardLocation l9"></td></tr>
-<tr><td class="cardLocation l10"></td></tr>
-<tr><td class="cardLocation l11"></td></tr>
-<tr><td class="cardLocation l12"></td></tr>
-<tr><td class="cardLocation l13"></td></tr>
+        </table>
 
-</table>
-</td>
-</tr>
-</table>
-    <br></br>
-    <br></br>
+        <br></br>
+        <br></br>
 
 
-<div>
-    <div id="inactiveCard">
+        <div>
+            <div id="inactiveCard">
 
-    </div>
+            </div>
 
-    <div id="activeCard">
+            <div id="activeCard">
 
-    </div>
+            </div>
 
-    <div id="buttons">
-        <div id="deck">
-            <button id="dealButton"/>
-            <h2>Deal</h2>
-        </div>
-        <div id="discard">
-            <h2>Discard</h2>
+            <div id="buttons">
+                <div id="deck">
+                    <button id="dealButton"/>
+                    <h2>Deal</h2>
+                </div>
+                <div class="droppable discard">
+                    <h2>Discard</h2>
+                </div>
+            </div>
+
+
         </div>
     </div>
 
 
-</div>
-</div>
+    <!--<BR>Remove from: <button id="Remove1">Column1</button><button id="Remove2">Column2</button><button id="Remove3">Column3</button><button id="Remove4">Column4</button>-->
+
+    <!--<BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>-->
+
+    <script>
+
+    var game;
+    var curRow = 0; // inc in dealDrag
+
+    function genCols(game, rowNum) {
+        $('#columnOfCards').append("<tr data-rownum = '"+rowNum+"'></tr>");
+
+        for(var i = 0; i < 4; i++) {
+            $('#columnOfCards tr[data-rownum="'+rowNum+'"]').append("<td class='droppable' data-colnum='"+i+"' data-hasCard='1' data-istop='1' data-suit='" +  (game.cols[i][curRow].suit.toLowerCase()) + "' data-value='" + (game.cols[i][rowNum].value) + "'> </td>");
+           
+
+            if($('#columnOfCards tr[data-rownum="'+ (rowNum - 1) +'"] td[data-colnum="'+i+'"]').attr("data-istop")){
+                $('#columnOfCards tr[data-rownum="'+ (rowNum - 1) +'"] td[data-colnum="'+i+'"]').attr("data-istop", 0);
+            }
+        }
+
+    }
+
+    function display(game) {
+
+        genCols(game, curRow);
+        $('#columnOfCards tr[data-rownum="'+ curRow +'"] td').each(function( index ) {
+            $(this).html('<img src="assets/images/cardPics/'+ game.cols[index][curRow].value +'_of_'+ game.cols[index][curRow].suit.toLowerCase() +'.png" width="250"/>');
+        });
+        checkMovable();
+        activDragable();
+    }
+
+    function activDragable() {
 
 
-<!--<BR>Remove from: <button id="Remove1">Column1</button><button id="Remove2">Column2</button><button id="Remove3">Column3</button><button id="Remove4">Column4</button>-->
+        $( "td[data-istop='0'" ).draggable("disable");
+       
+        $( "td[data-istop='1'" ).each(function() {
+            $(this).addClass("draggable");
+        });
 
-<!--<BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>-->
+        $( ".draggable" ).draggable({
+          addClasses: true
+      });
 
-<script>
+         $( "td[data-istop='1'" ).draggable("enable");
 
-var game;
 
-function display(game) {
-console.log(game);
+        curRow++
 
-$( '.columnOfCards .cardLocation' ).html("");
+    };
 
-    $.each(game.cols[0], function( key, val ) {
-        $( '#c0 .l'+key ).html("<img src='assets/images/" + val.value +"_of_"+ val.suit.toLowerCase() +".png' width='250'/>");
+
+
+
+    $("#dealButton").click(function(){
+        $.ajax({
+          type: "POST",
+          url: "/dealGame",
+          data: JSON.stringify(game),
+          success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+          game = data;
+          display(data);
+      },
+
+      contentType:"application/json; charset=utf-8",
+      dataType:"json",
+  });
     });
 
- $.each(game.cols[1], function( key, val ) {
-        $( '#c1 .l'+key ).html("<img src='assets/images/" + val.value +"_of_"+ val.suit.toLowerCase() +".png' width='250'/>");
-    });
-
- $.each(game.cols[2], function( key, val ) {
-        $( '#c2 .l'+key ).html("<img src='assets/images/" + val.value +"_of_"+ val.suit.toLowerCase() +".png' width='250'/>");
-    });
-
- $.each(game.cols[3], function( key, val ) {
-        $( '#c3 .l'+key ).html("<img src='assets/images/" + val.value +"_of_"+ val.suit.toLowerCase() +".png' width='250'/>");
-    });
 
 
-
+    $( ".discard" ).droppable({
+      drop: function(event, ui) {
+    removeCard(ui.draggable);
 }
-
-$.getJSON("http://localhost:8080/game", function( data ) {
-display(data);
-game = data;
 });
 
+    $('.droppable').droppable({
+    drop: function(ev, ui) {
+        foobar();
+        //$(ui.draggable).detach().css({top: 0,left: 0}).appendTo(this);
+    }
+});
 
-$("#dealButton").click(function(){
-$.ajax({
-  type: "POST",
-  url: "/dealGame",
-  data: JSON.stringify(game),
-  success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+    function foobar() {
+        console.log("Dropped a card in a table cell!");
+    }
+
+
+
+
+
+    $.getJSON("http://localhost:8080/game", function( data ) {
+        display(data);
         game = data;
-        display(data);},
-  contentType:"application/json; charset=utf-8",
-  dataType:"json",
-});
-});
+    }); 
+
+    function removeCard(currentCard){
+        if(checkMovable(currentCard)){
+            currentCard.html(' ');
+            console.log(currentCard);
+            setPrevTop(currentCard);
+            $(currentCard[0]).attr("data-hasCard", 0);
+            $(currentCard[0]).attr("data-istop", 0);
+            $(currentCard[0]).removeAttr("style");
+        }
+    };
 
 
-function removeCard(colNumber){
-$.ajax({
-type: "POST",
-url: "/removeCard/"+colNumber,
-data: JSON.stringify(game),
-success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
-game = data;
-display(data);},
-contentType:"application/json; charset=utf-8",
-dataType:"json",
-});
 
-}
+    function setPrevTop(currentCard) {
+        // currentCard[0].parentElement.children[currentCard[0].attributes[0]].attribute[2] = 1;
+        // console.log(currentCard[0].parentElement.previousSibling.children[currentCard[0].attribute[0]].attribute[2]);
 
+        console.log('td[data-colnum="' + parseInt(currentCard[0].attributes[0].nodeValue) + '"]');
+       
+       $(currentCard).parent().prev().children("td[data-colnum='" + parseInt(currentCard[0].attributes[0].nodeValue) + "']").attr("data-istop", 1);
 
-$("#Remove1").click(function(){
-    removeCard(0);
-});
-$("#Remove2").click(function(){
-    removeCard(1);
-});
-$("#Remove3").click(function(){
-    removeCard(2);
-});
-$("#Remove4").click(function(){
-    removeCard(3);
-});
+       activDragable(); // bind Jquery UI dragable to newly draggable elements
+
+    }
+
+    function checkMovable(currentCard){
+        numRows = curRow;
+        $tableRows = $('#columnOfCards tr');
+         $curCard = $(currentCard);
 
 
-$("#moveButton").click(function(){
-var colFrom = $("#from_col").val();
-var colTo = $("#to_col").val();
-$.ajax({
-  type: "POST",
-  url: "/moveCard/"+colFrom+"/"+colTo,
-  data: JSON.stringify(game),
-  success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
-        game = data;
-        display(data);},
-  contentType:"application/json; charset=utf-8",
-  dataType:"json",
-});
-});
+        for(i = 0; i < numRows; i++) {
+            for(j = 0; j < 4; j++) {
+                $comparitor = $tableRows[i].children[j];
+                if(parseInt($comparitor.attributes[2].nodeValue)) {
+                    if($comparitor.attributes[3].nodeValue == $curCard.attr("data-suit")) {
+                         if((parseInt($comparitor.attributes[4].nodeValue) > (parseInt($curCard.attr("data-value"))))) {
+                         return true;
+                         }
+                    }
+                }
+            }
+        }
+        return false;
+    };
+
+    // function removeCard(colNumber){
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/removeCard/"+colNumber,
+    //         data: JSON.stringify(game),
+    //         success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+    //         game = data;
+    //         display(data);},
+    //         contentType:"application/json; charset=utf-8",
+    //         dataType:"json",
+    //     });
+
+    // }
+
+
+    // $("#Remove1").click(function(){
+    //     removeCard(0);
+    // });
+    // $("#Remove2").click(function(){
+    //     removeCard(1);
+    // });
+    // $("#Remove3").click(function(){
+    //     removeCard(2);
+    // });
+    // $("#Remove4").click(function(){
+    //     removeCard(3);
+    // });
+
+
+    // $("#moveButton").click(function(){
+    //     var colFrom = $("#from_col").val();
+    //     var colTo = $("#to_col").val();
+    //     $.ajax({
+    //       type: "POST",
+    //       url: "/moveCard/"+colFrom+"/"+colTo,
+    //       data: JSON.stringify(game),
+    //       success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+    //       game = data;
+    //       display(data);},
+    //       contentType:"application/json; charset=utf-8",
+    //       dataType:"json",
+    //   });
+    // });
 
 
 </script>
