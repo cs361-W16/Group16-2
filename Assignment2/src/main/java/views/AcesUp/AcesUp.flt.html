@@ -111,7 +111,7 @@ $( document ).ready(function() {
 
 
        $("#col" + i).children().children().attr("data-istop", 0);
-       $("#col" + i).append('<div class="droppable"> <div class="card" data-suit="' + card[curRow].suit + '" data-value="' + card[curRow].value + '" data-istop="1" data-hascard="1"><img src="assets/images/cardPics/' + card[curRow].value + '_of_' + card[curRow].suit + '.png" width="200" style="margin-top:' + (-65*curRow) + 'px"/></div></div>');
+       $("#col" + i).append('<div class="droppable"> <div class="card" data-suit="' + card[curRow].suit + '" data-value="' + card[curRow].value + '" data-istop="1" data-hascard="1"><img src="assets/images/cardPics/' + card[curRow].value + '_of_' + card[curRow].suit + '.png" width="200" style="top:' + (-65*curRow) + 'px"/></div></div>');
        i++;
 
 
