@@ -66,22 +66,12 @@ float: right;
 }
 
 
-<<<<<<< HEAD
 #buttons{
     width: 100%;
     display: inline-block;
     padding-top:20%;
     float: left;
     margin: 0% 2%;
-=======
-.discard{
-    background-image: url("../images/trash.jpg");
-    float: right;
-    background-size: 100%;
-    width: 100px;
-    height: 140px;
-    background-repeat: no-repeat;
->>>>>>> 12123936ad60664988142506e285f92c592da216
 }
 
 
