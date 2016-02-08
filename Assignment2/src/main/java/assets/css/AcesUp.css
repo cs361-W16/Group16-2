@@ -1,0 +1,134 @@
+table{
+    empty-cells: hide;
+}
+
+tr{
+width:550px;
+margin-right: 5%;
+}
+
+td{
+width:20%;
+height:40px;
+text-align:center;
+padding-right: 5%;
+}
+
+h1{
+font-size: 50px;
+text-shadow: -1px 0 silver, 0 1px silver, 1px 0 silver, 0 -1px silver;
+}
+h2{
+font-size: 30px;
+text-shadow: -1px 0 silver, 0 1px silver, 1px 0 silver, 0 -1px silver;
+}
+
+.title{
+font-size: 30px;
+font-weight: bold;
+text-shadow: -1px 0 silver, 0 1px silver, 1px 0 silver, 0 -1px silver  ;
+}
+
+.cardLocation{
+width: 400px;
+}
+
+body{
+background-image: url("../images/background.jpg");
+background-size: 100% 100%;
+background-repeat: no-repeat;
+height: 100%;
+}
+
+#errors{
+    width: 75%;
+    background-color: white;
+}
+
+#header div{
+    display: inline;
+}
+
+#newGame button{
+font-size: 24px;
+float: right;
+}
+
+#board{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%
+}
+#gameBoard{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+<<<<<<< HEAD
+#buttons{
+    width: 100%;
+    display: inline-block;
+    padding-top:20%;
+    float: left;
+    margin: 0% 2%;
+=======
+.discard{
+    background-image: url("../images/trash.jpg");
+    float: right;
+    background-size: 100%;
+    width: 100px;
+    height: 140px;
+    background-repeat: no-repeat;
+>>>>>>> 12123936ad60664988142506e285f92c592da216
+}
+
+
+/*#dealButton{
+    margin-top: 150px;
+}*/
+
+#deck button{
+width: 100px;
+height: 140px;
+background-image: url("../images/deck.jpg");
+background-size: 100%;
+background-repeat: no-repeat;
+display: inline;
+
+}
+
+#newGame{
+    width: 30%;
+    float: right;
+}
+
+#newGame button{
+width: 100px;
+height: 140px;
+
+
+}
+
+
+#gameboard tr div {
+    display: inline;
+}
+
+#gameboard {
+    clear: both;
+}
+
+.boardCol {
+    display: inline;
+    float: left;
+    padding-right: 5%;
+}
+
+
+
+.card {
+    width: 200px;
+    height:100px;
+}
