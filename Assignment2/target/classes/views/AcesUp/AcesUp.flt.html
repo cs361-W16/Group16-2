@@ -17,6 +17,9 @@
 
 <body>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f36f6920f14c5e29c4bcc91f6a45f5c544b17c59
   <div id="board">
     <div class="boardCol columnOfCards" id="col1">
     </div>
@@ -27,6 +30,8 @@
     <div class="boardCol columnOfCards" id="col4">
     </div>
   </div>
+<<<<<<< HEAD
+=======
 
 </table>
 <div id="buttons">
@@ -159,11 +164,38 @@
 
 
 
+>>>>>>> f36f6920f14c5e29c4bcc91f6a45f5c544b17c59
 
+</table>
+<div id="buttons">
+
+  <div id="errors" style="text-align:center">
+    <h1 id="errorMsg"><h1>
+    </div>
+    <div id="deck">
+      <button id="dealButton" />
+      <h2>Deal</h2>
+    </div>
+    <div id="newGame">
+      <input type=button value="New Game" onClick="window.location.reload()">
+
+    </div>
+  </div>
 
 <<<<<<< HEAD
 
 
+
+
+
+
+
+
+=======
+<<<<<<< HEAD
+
+
+>>>>>>> f36f6920f14c5e29c4bcc91f6a45f5c544b17c59
 </div>
 
 <script>
@@ -275,10 +307,14 @@ $( document ).ready(function() {
       $("#errorMsg").text("That is not a legal move!!!");
       $('#errors').delay(1000).fadeOut(400)
     }
+<<<<<<< HEAD
 
   }
 
+=======
+>>>>>>> f36f6920f14c5e29c4bcc91f6a45f5c544b17c59
 
+  }
 
   var removeCard = function(cardObj) {
 
@@ -293,6 +329,23 @@ $( document ).ready(function() {
    })
     
 
+<<<<<<< HEAD
+=======
+
+  var removeCard = function(cardObj) {
+
+    cardObj.parent().siblings().each(function() {
+      console.log("Looking at the children of:");
+      console.log($(this).children());
+      if(!$(this).children().is(':empty')) 
+      {
+       console.log("This is returning true.");
+       $(this).children().attr("data-istop", 1);
+     } 
+   })
+    
+
+>>>>>>> f36f6920f14c5e29c4bcc91f6a45f5c544b17c59
     cardObj.attr("data-istop", 0);
     cardObj.attr("data-suit", " ");
     cardObj.attr("data-value", " ");
@@ -392,6 +445,8 @@ $( document ).ready(function() {
               ui.draggable.droppable({
                accept: ".draggable"
              });
+<<<<<<< HEAD
+=======
 
               ui.draggable.droppable("enable");
 
@@ -427,9 +482,16 @@ function display(game) {
         $('td[data-colnum="'+i+'"]'); 
         // 2) Go through each column, dipslay image of card/suit
         // game.col[i][0];
+>>>>>>> f36f6920f14c5e29c4bcc91f6a45f5c544b17c59
 
-    }
+              ui.draggable.droppable("enable");
 
+<<<<<<< HEAD
+            });
+
+          }
+        });
+=======
     // console.log("You are viewing information about the game:");
     // console.log(game);
 
@@ -456,10 +518,18 @@ function display(game) {
  //    });
 >>>>>>> 12123936ad60664988142506e285f92c592da216
 
+>>>>>>> f36f6920f14c5e29c4bcc91f6a45f5c544b17c59
 
 
 }
 
+<<<<<<< HEAD
+
+
+
+}
+
+=======
 <<<<<<< HEAD
 =======
 $.getJSON("http://localhost:8080/game", function( data ) {
@@ -515,8 +585,16 @@ function removeCard(colNumber){
 
  return topCards;
 }
+>>>>>>> f36f6920f14c5e29c4bcc91f6a45f5c544b17c59
 
+var getTopCards = function() {
+ topCards = [];
 
+<<<<<<< HEAD
+ $('#board div[data-istop="1"]').each(function() {
+   topCards.push($(this));
+ });
+=======
 <<<<<<< HEAD
 =======
 $("#Remove1").click(function(){
@@ -531,8 +609,23 @@ $("#Remove3").click(function(){
 $("#Remove4").click(function(){
     removeCard(3);
 });
+>>>>>>> f36f6920f14c5e29c4bcc91f6a45f5c544b17c59
+
+ return topCards;
+}
+
+<<<<<<< HEAD
 
 
+
+
+
+
+return {display: display, checkDiscard: checkDiscard, getTopCards: getTopCards, removeCard: removeCard, updateDraggable: updateDraggable, updateDroppable: updateDroppable}
+
+}());
+
+=======
 $("#moveButton").click(function(){
     var colFrom = $("#from_col").val();
     var colTo = $("#to_col").val();
@@ -557,6 +650,7 @@ return {display: display, checkDiscard: checkDiscard, getTopCards: getTopCards, 
 
 }());
 
+>>>>>>> f36f6920f14c5e29c4bcc91f6a45f5c544b17c59
 
 }); // End of document.ready
 </script>
