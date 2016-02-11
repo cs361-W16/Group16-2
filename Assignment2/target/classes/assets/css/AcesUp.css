@@ -4,12 +4,14 @@ table{
 
 tr{
 width:550px;
+margin-right: 5%;
 }
 
 td{
 width:20%;
 height:40px;
 text-align:center;
+padding-right: 5%;
 }
 
 h1{
@@ -35,6 +37,12 @@ body{
 background-image: url("../images/background.jpg");
 background-size: 100% 100%;
 background-repeat: no-repeat;
+height: 100%;
+}
+
+#errors{
+    width: 75%;
+    background-color: white;
 }
 
 #header div{
@@ -47,6 +55,7 @@ float: right;
 }
 
 #board{
+    display: block;
     margin-left: auto;
     margin-right: auto;
     width: 70%
@@ -56,26 +65,39 @@ float: right;
     margin-right: auto;
 }
 
-#buttons div{
-    display: inline;
+
+#buttons{
+    width: 100%;
+    display: inline-block;
+    padding-top:20%;
+    float: left;
+    margin: 0% 2%;
 }
 
-.discard{
-    background-image: url("../images/trash.jpg");
-    float: right;
-    background-size: 100%;
-    width: 100px;
-    height: 140px;
-    background-repeat: no-repeat;
-}
 
+/*#dealButton{
+    margin-top: 150px;
+}*/
 
 #deck button{
 width: 100px;
 height: 140px;
 background-image: url("../images/deck.jpg");
 background-size: 100%;
-  background-repeat: no-repeat;
+background-repeat: no-repeat;
+display: inline;
+
+}
+
+#newGame{
+    width: 30%;
+    float: right;
+}
+
+#newGame button{
+width: 100px;
+height: 140px;
+
 
 }
 
@@ -91,11 +113,12 @@ background-size: 100%;
 .boardCol {
     display: inline;
     float: left;
+    padding-right: 5%;
 }
 
 
 
 .card {
     width: 200px;
-    height:300px;
+    height:100px;
 }
