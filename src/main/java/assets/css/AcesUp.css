@@ -13,6 +13,7 @@ height:40px;
 text-align:center;
 padding-right: 5%;
 }
+div.inline { float:left; }
 
 h1{
 font-size: 50px;
