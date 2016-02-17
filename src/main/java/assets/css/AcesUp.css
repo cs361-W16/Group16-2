@@ -89,6 +89,15 @@ background-repeat: no-repeat;
 display: inline;
 
 }
+#spanishDeck button{
+width: 100px;
+height: 140px;
+background-image: url("../images/spanishDeck.png");
+background-size: 100%;
+background-repeat: no-repeat;
+display: inline;
+
+}
 
 #newGame{
     width: 30%;
