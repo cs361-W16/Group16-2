@@ -35,7 +35,11 @@ public class ApplicationController {
     public Result acesUp() {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
     }
-    
+
+    public Result regionSelect() {
+        return Results.html().template("views/AcesUp/regionSelect.html");
+    }
+
     public Result gameGet(){
         Game g = new Game();
         g.buildDeck();
