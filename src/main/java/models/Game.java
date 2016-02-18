@@ -53,7 +53,16 @@ public class Game {
 
 
 
-
+    public void buildSpanishDeck(){
+        for(int i = 2; i < 14; i++) {
+            if(i != 8 && i != 9) {
+                deck.add(new Card(i, Suit.Bats));
+                deck.add(new Card(i, Suit.Cups));
+                deck.add(new Card(i, Suit.Coins));
+                deck.add(new Card(i, Suit.Spears));
+            }
+        }
+    }
 
 
     public void buildDeck() {
