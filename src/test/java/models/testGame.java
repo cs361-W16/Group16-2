@@ -62,6 +62,12 @@ public class testGame {
         assertEquals(0,g.cols.get(2).size());
     }
 
+    @Test
+    public void testSpanishbuildDeck() {
+        Game g = new Game();
+        g.buildSpanishDeck();
+        assertEquals(40, g.deck.size());
+    }
 
 
 }
