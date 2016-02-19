@@ -79,7 +79,8 @@ input:focus {outline:0;}
 
 #errors{
     z-index: 2;
-    width: 100%;
+    width: 99%;
+    overflow: hidden;
     background-color: white;
     display: inline;
     position: absolute;
@@ -128,18 +129,6 @@ input:focus {outline:0;}
     
 }
 
-#spanishDeck button{
-    width: 100px;
-    height: 140px;
-    background-image: url("../images/spanishDeck.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    display: inline;
-
-}
-
-
-
 #gameboard tr div {
     display: inline;
 }
@@ -159,4 +148,61 @@ input:focus {outline:0;}
 .card {
     width: 200px;
     height:100px;
+}
+
+.pageOverlay {
+    width: 101%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: -.5%;
+    z-index: 5;
+    background: url('../images/overlayBG.png');
+}
+
+/*RegionSelect formatting starts here*/
+
+input.button{
+    color:transparent;
+}
+
+#deckChoice{
+    padding-top: 10%;
+    width: 100%;
+    text-align: center;
+}
+
+#deckEngish{
+    width: 30%;
+    display: inline;
+    float: left;
+}
+
+#deckEngish input{
+    width: 100px;
+    height: 140px;
+    background-image: url("../images/deck.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline;
+}
+
+#deckSpanish{
+    width: 30%;
+    display: inline;
+    float: right;
+}
+
+#deckSpanish input{
+    width: 100px;
+    height: 140px;
+    background-image: url("../images/spanishDeck.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline;
+
+}
+
+#chosenDeck{
+    display: none;    
 }

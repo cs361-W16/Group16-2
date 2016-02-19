@@ -41,11 +41,13 @@ public class Routes implements ApplicationRoutes {
         ///////////////////////////////////////////////////////////////////////    
         router.GET().route("/assets/webjars/{fileName: .*}").with(AssetsController.class, "serveWebJars");
         router.GET().route("/assets/{fileName: .*}").with(AssetsController.class, "serveStatic");
+        router.GET().route("/controllers/javascript/{fileName: .*}").with(ApplicationController.class, "externalJs");
 
         ///////////////////////////////////////////////////////////////////////
         // Region Select Route
         ///////////////////////////////////////////////////////////////////////
         router.GET().route("/RegionSelect").with(ApplicationController.class, "regionSelect");
+
 
 
         ///////////////////////////////////////////////////////////////////////

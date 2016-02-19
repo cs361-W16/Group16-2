@@ -1,81 +1,4 @@
-<link href="assets/css/AcesUp.css" rel="stylesheet">
-<script type="text/javascript" src="/assets/webjars/jquery/2.1.3/jquery.js"></script>
-<script type="text/javascript" src="/assets/webjars/jquery-ui/1.11.4/jquery-ui.js"></script>
-
-<body>
-  <div id="topDiv">
-    <span id="title">Aces Up</span>
-    <!--     <div id="newGame"> -->
-    <label id="newGame">
-      <span>New Game</span>
-      <input type="button" value="" onClick="window.location.reload()">
-    </label>
-    <!--     </div> -->
-  </div>
-  <br></br>
-  <br></br>
-  <div id="errors" style="text-align:center">
-    <span id="errorMsg"><span>
-    </div>
-    <br></br>
-
-
-    <div id="board">
-      <div class="boardCol columnOfCards" id="col1">
-      </div>
-      <div class="boardCol columnOfCards" id="col2">
-      </div>
-      <div class="boardCol columnOfCards" id="col3">
-      </div>
-      <div class="boardCol columnOfCards" id="col4">
-      </div>
-    </div>
-
-  </table>
-  <div id="buttons">
-    <div id="deck">
-      <button id="dealButton" />
-      <h2>Deal</h2>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-</div>
-
-<script>
-
-
-
-var pageOverlay = function (toLoad) {
-    $("body").append('<div class="pageOverlay"> </div>');
-    if (toLoad) {
-        $(".pageOverlay").load(toLoad);
-        
-
-    }
-};
-
-var deckChoice = $('#chosenDeck').load("regionSelect");
-
-
-$(document).ready(function(){
-
-    pageOverlay("/RegionSelect");
-})
-
-
-$( document ).ready(function() {        
-
-  // console.log("user chose" + deckChoice)
- 
-  var acesUp = (function(data) {
+var acesUp = (function(data) {
 
     game = null; // Object holds deck and current dealt colum
     curRow = 0; // iterator for deal function
@@ -84,7 +7,6 @@ $( document ).ready(function() {
       console.log("printing data" + data);
       display(data);
       game = data;
-      pageOverlay("/RegionSelect");
     });
     
     $("#dealButton").click(function(){
@@ -135,7 +57,7 @@ $( document ).ready(function() {
 
 
        $("#col" + i).children().children().attr("data-istop", 0);
-       $("#col" + i).append('<div class="droppable"> <div class="card" data-suit="' + card[curRow].suit + '" data-value="' + card[curRow].value + '" data-istop="1" data-hascard="1"><img src="assets/images/cardPics/' + card[curRow].value + '_of_' + card[curRow].suit + '.png" width="200" style="top:' + (-65*curRow) + 'px"/></div></div>').children(':last').hide().fadeIn(350*i);
+       $("#col" + i).append('<div class="droppable"> <div class="card" data-suit="' + card[curRow].suit + '" data-value="' + card[curRow].value + '" data-istop="1" data-hascard="1"><img src="assets/images/cardPics/' + card[curRow].value + '_of_' + card[curRow].suit + '.png" width="200" style="top:' + (-65*curRow) + 'px"/></div></div>');
        i++;
 
 
@@ -172,7 +94,7 @@ $( document ).ready(function() {
 
 
       if(cmprCard.attr("data-suit") === cardObj.attr("data-suit") &&
-       (parseInt(cmprCard.attr("data-value")) > parseInt(cardObj.attr("data-value")))) {
+       parseInt(cmprCard.attr("data-value")) > parseInt(cardObj.attr("data-value"))) {
         canDiscard = true;
     }
   });
@@ -207,9 +129,7 @@ $( document ).ready(function() {
     cardObj.attr("data-suit", " ");
     cardObj.attr("data-value", " ");
     cardObj.attr("data-hascard", 0);
-    cardObj.children().fadeOut(500, function() {
-      cardObj.empty();
-      });
+    cardObj.empty();
     updateDroppable();
     updateDraggable();
 
@@ -229,11 +149,8 @@ $( document ).ready(function() {
 
       $nextDrag.addClass("draggable");
       $nextDrag.draggable({
-        revert: "invalid"
+        revert: true
       });
-      // $nextDrag.draggable({
-      //   scope: droppable
-      // });
     }
     catch(e) {
       null;
@@ -252,7 +169,7 @@ $( document ).ready(function() {
       over: function(event, ui) {
 
         ui.draggable.parent().siblings().each(function() {
-          if(parseInt($(this).children().attr("data-hascard")) == 1) {
+          if(parseInt($(this).children().attr("data-hascard"))) {
             $(this).droppable("disable")
           }
         });
@@ -342,13 +259,3 @@ var getTopCards = function() {
 return {display: display, checkDiscard: checkDiscard, getTopCards: getTopCards, removeCard: removeCard, updateDraggable: updateDraggable, updateDroppable: updateDroppable}
 
 }());
-
-}); // End of document.ready
-
-</script>
-
-
-
-</body>
-
-</html>
