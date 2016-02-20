@@ -27,7 +27,7 @@ public class testGame {
         Game g = new Game();
         g.buildDeck();
         g.shuffle();
-        assertNotEquals(2,g.deck.get(0).getValue());
+        assertNotEquals(1,g.deck.get(0).getValue());
     }
 
     @Test
@@ -66,7 +66,25 @@ public class testGame {
     public void testSpanishbuildDeck() {
         Game g = new Game();
         g.buildSpanishDeck();
-        assertEquals(40, g.deck.size());
+        assertEquals(36, g.deck.size());
+    }
+
+    @Test
+    public void testcolHasCards(){
+        Game g = new Game();
+        assertEquals(false,g.colHasCards(0));
+        assertEquals(false,g.colHasCards(1));
+        assertEquals(false,g.colHasCards(2));
+        assertEquals(false,g.colHasCards(3));
+        g.buildSpanishDeck();
+        g.customDeal(0,3,6,9);
+        assertEquals(true,g.colHasCards(0));
+        assertEquals(true,g.colHasCards(1));
+        assertEquals(true,g.colHasCards(2));
+        assertEquals(true,g.colHasCards(3));
+
+
+
     }
 
 

@@ -1,65 +1,113 @@
+body{
+    background-image: url("../images/background.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
 table{
     empty-cells: hide;
 }
 
 tr{
-width:550px;
-margin-right: 5%;
+    width:550px;
+    margin-right: 5%;
 }
 
 td{
-width:20%;
-height:40px;
-text-align:center;
-padding-right: 5%;
+    width:20%;
+    height:40px;
+    text-align:center;
+    padding-right: 5%;
 }
+
 div.inline { float:left; }
 
 h1{
-font-size: 50px;
-text-shadow: -1px 0 silver, 0 1px silver, 1px 0 silver, 0 -1px silver;
+    font-size: 50px;
+    text-shadow: -1px 0 silver, 0 1px silver, 1px 0 silver, 0 -1px silver;
 }
+
+
 h2{
-font-size: 30px;
-text-shadow: -1px 0 silver, 0 1px silver, 1px 0 silver, 0 -1px silver;
+    font-size: 30px;
+    text-shadow: -1px 0 silver, 0 1px silver, 1px 0 silver, 0 -1px silver;
 }
 
-.title{
-font-size: 30px;
-font-weight: bold;
-text-shadow: -1px 0 silver, 0 1px silver, 1px 0 silver, 0 -1px silver  ;
+h3{
+    font-size: 20px;
+    text-shadow: -1px 0 silver, 0 1px silver, 1px 0 silver, 0 -1px silver;
 }
 
-.cardLocation{
-width: 400px;
-}
+input:focus {outline:0;}
 
-body{
-background-image: url("../images/background.jpg");
-background-size: 100% 100%;
-background-repeat: no-repeat;
-height: 100%;
-}
 
-#errors{
-    width: 75%;
-    background-color: white;
-}
-
-#header div{
+#title{
+    width: 30%;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: -1px 0 silver, 0 1px silver, 1px 0 silver, 0 -1px silver;
     display: inline;
 }
 
-#newGame button{
-font-size: 24px;
-float: right;
+#newGame{
+    width: 24.5%;
+    float: right;
+    display: inline;
+    margin-bottom: 1%;
+}
+
+#newGame input{
+    background: transparent;
+    border:none;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: -1px 0 silver, 0 1px silver, 1px 0 silver, 0 -1px silver;
+}
+#newGame label{
+    margin-bottom: 1%;
+}
+
+#newGame span{
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: -1px 0 silver, 0 1px silver, 1px 0 silver, 0 -1px silver;
+}
+
+.cardLocation{
+    width: 400px;
+}
+
+#topDiv{
+    width: 100%;
+}
+
+#errors{
+    z-index: 2;
+    width: 99%;
+    overflow: hidden;
+    background-color: white;
+    display: inline;
+    position: absolute;
+    /*  overflow: hidden;*/
+}
+
+#errors span{
+    font-size: 25px;
+}
+
+
+#header {
+    width: 20%;
+    display: inline;
 }
 
 #board{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 70%
+    width: 70%;
+    z-index: 2;
 }
 #gameBoard{
     margin-left: auto;
@@ -68,49 +116,23 @@ float: right;
 
 
 #buttons{
-    width: 100%;
-    display: inline-block;
+    width: 15%;
+    display:block;
     padding-top:20%;
-    float: left;
+    float: right;
     margin: 0% 2%;
+    /*position: absolute*/;
 }
-
-
-/*#dealButton{
-    margin-top: 150px;
-}*/
 
 #deck button{
-width: 100px;
-height: 140px;
-background-image: url("../images/deck.jpg");
-background-size: 100%;
-background-repeat: no-repeat;
-display: inline;
-
+    width: 100px;
+    height: 140px;
+    background-image: url("../images/deck.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline;
+    
 }
-#spanishDeck button{
-width: 100px;
-height: 140px;
-background-image: url("../images/spanishDeck.png");
-background-size: 100%;
-background-repeat: no-repeat;
-display: inline;
-
-}
-
-#newGame{
-    width: 30%;
-    float: right;
-}
-
-#newGame button{
-width: 100px;
-height: 140px;
-
-
-}
-
 
 #gameboard tr div {
     display: inline;
@@ -131,4 +153,61 @@ height: 140px;
 .card {
     width: 200px;
     height:100px;
+}
+
+.pageOverlay {
+    width: 101%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: -.5%;
+    z-index: 5;
+    background: url('../images/overlayBG.png');
+}
+
+/*RegionSelect formatting starts here*/
+
+input.button{
+    color:transparent;
+}
+
+#deckChoice{
+    padding-top: 10%;
+    width: 100%;
+    text-align: center;
+}
+
+#deckEngish{
+    width: 30%;
+    display: inline;
+    float: left;
+}
+
+#deckEngish input{
+    width: 100px;
+    height: 140px;
+    background-image: url("../images/deck.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline;
+}
+
+#deckSpanish{
+    width: 30%;
+    display: inline;
+    float: right;
+}
+
+#deckSpanish input{
+    width: 100px;
+    height: 140px;
+    background-image: url("../images/spanishDeck.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline;
+
+}
+
+#chosenDeck{
+    display: none;    
 }

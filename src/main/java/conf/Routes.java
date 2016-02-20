@@ -31,7 +31,8 @@ public class Routes implements ApplicationRoutes {
 //        router.GET().route("/hello_world.json").with(ApplicationController.class, "helloWorldJson");
         router.GET().route("/AcesUp").with(ApplicationController.class, "acesUp");
 
-        router.GET().route("/game").with(ApplicationController.class, "gameGet");
+        router.GET().route("/game/english").with(ApplicationController.class, "gameGet");
+        router.GET().route("/game/spanish").with(ApplicationController.class, "gameGet");
         router.POST().route("/dealGame").with(ApplicationController.class, "dealPost");
         router.POST().route("/moveCard/{columnFrom}/{columnTo}").with(ApplicationController.class, "moveCard");
         router.POST().route("/removeCard/{column}").with(ApplicationController.class, "removeCard");
@@ -41,11 +42,7 @@ public class Routes implements ApplicationRoutes {
         ///////////////////////////////////////////////////////////////////////    
         router.GET().route("/assets/webjars/{fileName: .*}").with(AssetsController.class, "serveWebJars");
         router.GET().route("/assets/{fileName: .*}").with(AssetsController.class, "serveStatic");
-
-        ///////////////////////////////////////////////////////////////////////
-        // Region Select Route
-        ///////////////////////////////////////////////////////////////////////
-        router.GET().route("/RegionSelect").with(ApplicationController.class, "regionSelect");
+        router.GET().route("/assets/").with(ApplicationController.class, "externalJs");
 
 
         ///////////////////////////////////////////////////////////////////////

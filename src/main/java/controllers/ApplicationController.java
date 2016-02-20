@@ -36,13 +36,21 @@ public class ApplicationController {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
     }
 
-    public Result regionSelect() {
-        return Results.html().template("views/AcesUp/regionSelect.html");
+
+    public Result externalJs() {
+        return Results.html().template("controllers/javascript/externalJs.js");
     }
 
-    public Result gameGet(){
+    public Result gameGet(Context context){
         Game g = new Game();
-        g.buildDeck();
+        
+
+        if(context.getRequestPath().contains("spanish")){
+            g.buildSpanishDeck();
+        }
+        else{
+            g.buildDeck();
+        }
         g.shuffle();
         g.dealFour();
 
