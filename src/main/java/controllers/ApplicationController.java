@@ -48,7 +48,7 @@ public class ApplicationController {
         Game g = new Game();
         
 
-        if(context.getRequestPath().contains("Spanish")){
+        if(context.getRequestPath().contains("spanish")){
             g.buildSpanishDeck();
         }
         else{

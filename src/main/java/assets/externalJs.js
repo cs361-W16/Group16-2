@@ -1,13 +1,32 @@
-var acesUp = (function(data) {
+
+
+var pageOverlay = function (toLoad) {
+  $("body").append('<div class="pageOverlay"> </div>');
+  if (toLoad) {
+    $(".pageOverlay").load(toLoad);
+
+
+  }
+};
+
+var deckChoice = $('#chosenDeck').load("regionSelect");
+
+
+
+$( document ).ready(function() {    
+
+
+
+  // console.log("user chose" + deckChoice)
+
+  var acesUp = (function(data) {
+
 
     game = null; // Object holds deck and current dealt colum
     curRow = 0; // iterator for deal function
+
     
-    $.getJSON("http://localhost:8080/game", function( data ) {
-      console.log("printing data" + data);
-      display(data);
-      game = data;
-    });
+
     
     $("#dealButton").click(function(){
       if(game.deck.length == 0){
@@ -36,8 +55,39 @@ var acesUp = (function(data) {
 
 
 
+    var chooseDeck = (function() {
 
 
+    $("#deckEngish input").click(function() {
+    fetchDeck("english");
+    $('.pageOverlay').fadeOut();
+    $('#deckChoice').fadeOut();
+  });
+
+    $("#deckSpanish input").click(function() {
+      $('#dealButton h3').text("Acuerdo");
+      $('#newGame span').text("Nuevo juego");
+      $('#deck button').css("background-image", "url(assets/images/spanishDeck.png)");
+    fetchDeck("spanish");
+    $('.pageOverlay').fadeOut();
+    $('#deckChoice').fadeOut();
+  });
+
+})();
+
+
+var fetchDeck = function(deckChoice) {
+
+
+    $.getJSON("http://localhost:8080/game/" + deckChoice, function( data ) {
+      console.log("printing data" + data);
+      display(data);
+      game = data;
+
+    });
+
+
+  }
 
 
     var display = function(game) {
@@ -57,7 +107,7 @@ var acesUp = (function(data) {
 
 
        $("#col" + i).children().children().attr("data-istop", 0);
-       $("#col" + i).append('<div class="droppable"> <div class="card" data-suit="' + card[curRow].suit + '" data-value="' + card[curRow].value + '" data-istop="1" data-hascard="1"><img src="assets/images/cardPics/' + card[curRow].value + '_of_' + card[curRow].suit + '.png" width="200" style="top:' + (-65*curRow) + 'px"/></div></div>');
+       $("#col" + i).append('<div class="droppable"> <div class="card" data-suit="' + card[curRow].suit + '" data-value="' + card[curRow].value + '" data-istop="1" data-hascard="1"><img src="assets/images/cardPics/' + card[curRow].value + '_of_' + card[curRow].suit + '.png" width="200" style="top:' + (-65*curRow) + 'px"/></div></div>').children(':last').hide().fadeIn(350*i);
        i++;
 
 
@@ -94,7 +144,7 @@ var acesUp = (function(data) {
 
 
       if(cmprCard.attr("data-suit") === cardObj.attr("data-suit") &&
-       parseInt(cmprCard.attr("data-value")) > parseInt(cardObj.attr("data-value"))) {
+       (parseInt(cmprCard.attr("data-value")) > parseInt(cardObj.attr("data-value")))) {
         canDiscard = true;
     }
   });
@@ -129,7 +179,9 @@ var acesUp = (function(data) {
     cardObj.attr("data-suit", " ");
     cardObj.attr("data-value", " ");
     cardObj.attr("data-hascard", 0);
-    cardObj.empty();
+    cardObj.children().fadeOut(500, function() {
+      cardObj.empty();
+    });
     updateDroppable();
     updateDraggable();
 
@@ -149,39 +201,42 @@ var acesUp = (function(data) {
 
       $nextDrag.addClass("draggable");
       $nextDrag.draggable({
-        revert: true
+        revert: "invalid"
       });
-    }
-    catch(e) {
-      null;
-    }
+      // $nextDrag.draggable({
+      //   scope: droppable
+      // });
+}
+catch(e) {
+  null;
+}
 
-  }
+}
 
-  var updateDroppable = function() {
+var updateDroppable = function() {
 
-    $('#board div[data-hascard="1"]').removeClass("droppable");
-    $('#board div[data-hascard="0"]').addClass("droppable");
-    
-    
-    $( ".droppable" ).droppable({
-      accept: ".draggable",
-      over: function(event, ui) {
+  $('#board div[data-hascard="1"]').removeClass("droppable");
+  $('#board div[data-hascard="0"]').addClass("droppable");
 
-        ui.draggable.parent().siblings().each(function() {
-          if(parseInt($(this).children().attr("data-hascard"))) {
-            $(this).droppable("disable")
-          }
-        });
 
-        if(parseInt($(this).children().attr("data-hascard"))) {
+  $( ".droppable" ).droppable({
+    accept: ".draggable",
+    over: function(event, ui) {
+
+      ui.draggable.parent().siblings().each(function() {
+        if(parseInt($(this).children().attr("data-hascard")) == 1) {
           $(this).droppable("disable")
         }
-      },
-      out: function(event, ui) {
-        $(this).droppable("enable")
-      },
-      drop: function(event, ui) {
+      });
+
+      if(parseInt($(this).children().attr("data-hascard"))) {
+        $(this).droppable("disable")
+      }
+    },
+    out: function(event, ui) {
+      $(this).droppable("enable")
+    },
+    drop: function(event, ui) {
 
            // switch the properties of the elements
            $(this).children().html(ui.draggable.html());
@@ -256,6 +311,14 @@ var getTopCards = function() {
 
 
 
-return {display: display, checkDiscard: checkDiscard, getTopCards: getTopCards, removeCard: removeCard, updateDraggable: updateDraggable, updateDroppable: updateDroppable}
+
+
+
+
+
+
+return {display: display, checkDiscard: checkDiscard, getTopCards: getTopCards, removeCard: removeCard, updateDraggable: updateDraggable, updateDroppable: updateDroppable, fetchDeck: fetchDeck,  chooseDeck: chooseDeck}
 
 }());
+
+}); // End of document.ready

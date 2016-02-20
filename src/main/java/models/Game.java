@@ -51,10 +51,10 @@ public class Game {
 
 
 
-
+//spanish cards start at 1, exclude 8 and 9
 
     public void buildSpanishDeck(){
-        for(int i = 2; i < 14; i++) {
+        for(int i = 1; i < 12; i++) {
             if(i != 8 && i != 9) {
                 deck.add(new Card(i, Suit.Bats));
                 deck.add(new Card(i, Suit.Cups));
