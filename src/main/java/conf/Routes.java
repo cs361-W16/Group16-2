@@ -44,12 +44,6 @@ public class Routes implements ApplicationRoutes {
         router.GET().route("/assets/{fileName: .*}").with(AssetsController.class, "serveStatic");
         router.GET().route("/assets/").with(ApplicationController.class, "externalJs");
 
-        ///////////////////////////////////////////////////////////////////////
-        // Region Select Route
-        ///////////////////////////////////////////////////////////////////////
-        router.GET().route("/RegionSelect").with(ApplicationController.class, "regionSelect");
-
-
 
         ///////////////////////////////////////////////////////////////////////
         // Index / Catchall shows index page

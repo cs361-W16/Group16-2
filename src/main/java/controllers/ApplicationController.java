@@ -36,9 +36,6 @@ public class ApplicationController {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
     }
 
-    public Result regionSelect() {
-        return Results.html().template("views/AcesUp/regionSelect.html");
-    }
 
     public Result externalJs() {
         return Results.html().template("controllers/javascript/externalJs.js");
